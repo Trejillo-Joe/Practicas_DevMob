@@ -1,5 +1,8 @@
+import 'package:flutter_cinecito/domain/entities/movie.dart';
 
-//datasource se acerca a la capa externa
-abstract class MoviesDatasource { //es una interfaz
-  Future<List<Map<String, dynamic>>> getNowPlaying({int page = 1});
+abstract class MoviesDatasource { 
+  Future<List<Movie>>  getNowPlaying({int page = 1});
+  Future<List<Movie>>  getPopular({int page = 1});
+  Future<List<Movie>>  getTopRated({int page = 1});
+  Future<List<Movie>>  getUpcoming({int page = 1});
 }
