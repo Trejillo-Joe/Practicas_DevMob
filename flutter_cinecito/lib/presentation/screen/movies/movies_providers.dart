@@ -1,5 +1,6 @@
 import 'package:flutter_cinecito/domain/entities/movie.dart';
 import 'package:flutter_cinecito/presentation/screen/movies/movie_repository_provider.dart';
+import 'package:flutter_riverpod/legacy.dart';
 
 
 final nowPlayingMoviesProvider =
@@ -8,7 +9,6 @@ final nowPlayingMoviesProvider =
       return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
     });
 
-typedef MovieCallBack = Future<List<Movie>> Function({int page});
 
 final upcomingMoviesProvider =
     StateNotifierProvider<MoviesNotifier, List<Movie>>((ref) {
@@ -16,7 +16,6 @@ final upcomingMoviesProvider =
       return MoviesNotifier(fetchMoreMovies: fetchMoreMovies);
     });
 
-typedef MovieCallBack = Future<List<Movie>> Function({int page});
 
 final topRatedMoviesProvider =
     StateNotifierProvider<MoviesNotifier, List<Movie>>((ref) {
@@ -25,7 +24,6 @@ final topRatedMoviesProvider =
     });
 
 typedef MovieCallBack = Future<List<Movie>> Function({int page});
-
 
 class MoviesNotifier extends StateNotifier<List<Movie>> {
   int currentPage = 0;
